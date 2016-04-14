@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 7.0
+  - nightly
+
+matrix:
+  allow_failures:
+    - php: nightly
+
+before_script:
+  - composer selfupdate
+  - composer install --dev --prefer-dist
+
+script:
+  - ./vendor/bin/phpunit
