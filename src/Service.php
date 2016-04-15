@@ -47,7 +47,7 @@ class Service implements ServiceInterface, ServiceProviderInterface
         $company = $this->company;
 
         $app['nfe.create'] = $app->protect(function($params) use ($company) {
-            return $this->create($this->company, $params);
+            return $this->create($company, $params);
         });
 
         $app['nfe.pdf'] = $app->protect(function($nfe) use ($company) {
@@ -76,10 +76,7 @@ class Service implements ServiceInterface, ServiceProviderInterface
      */
     public function create($companyId, $params)
     {
-        /* @var \Nfe_ServiceInvoice */
-        $nfe = NFeService::create($companyId, $params);
-
-        return $nfe;
+        return NFeService::create($companyId, $params);
     }
 
     /**
@@ -87,9 +84,7 @@ class Service implements ServiceInterface, ServiceProviderInterface
      */
     public function pdf($companyId, $nfeId)
     {
-        $url = NFeService::pdf($companyId, $nfeId);
-
-        return $url;
+        return NFeService::pdf($companyId, $nfeId);
     }
 
     /**
@@ -97,9 +92,7 @@ class Service implements ServiceInterface, ServiceProviderInterface
      */
     public function xml($companyId, $nfeId)
     {
-        $url = NFeService::xml($companyId, $nfeId);
-
-        return $url;
+        return NFeService::xml($companyId, $nfeId);
     }
 
     /**
