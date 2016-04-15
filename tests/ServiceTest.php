@@ -150,4 +150,68 @@ class ServiceTest extends PHPUnit_Framework_TestCase
 
         $this->assertFalse($validate);
     }
+
+    /**
+     * @test
+     * @dataProvider validPostalCodes
+     */
+    public function addressMustBeReturnValidResponseWhenPostalCodeIsValid($postalCode)
+    {
+        $validate = $this->app['nfe.address']($postalCode);
+
+        $this->assertNotEmpty($validate);
+        $this->assertInstanceOf(\stdClass::class, $validate);
+        $this->assertNotEmpty($validate->postalCode);
+        $this->assertNotEmpty($validate->streetSuffix);
+        $this->assertNotEmpty($validate->street);
+        $this->assertNotEmpty($validate->district);
+        $this->assertNotEmpty($validate->city);
+        $this->assertNotEmpty($validate->state);
+    }
+
+    /**
+     * @test
+     * @dataProvider invalidPostalCodes
+     * @expectedException \NfeObjectNotFound
+     */
+    public function addressMustBeReturnErrorResponseWhenPostalCodeIsInvalid($postalCode)
+    {
+        $validate = $this->app['nfe.address']($postalCode);
+
+        $this->assertNotEmpty($validate);
+        $this->assertInstanceOf(\NfeObjectNotFound::class, $validate);
+    }
+
+    /**
+     * @return array
+     */
+    public function validPostalCodes()
+    {
+        return [
+            [
+                '88090-080',
+            ],
+            [
+                '05761280'
+            ]
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function invalidPostalCodes()
+    {
+        return [
+            [
+                '88090',
+            ],
+            [
+                '0'
+            ],
+            [
+                'Morbi fringilla'
+            ],
+        ];
+    }
 }

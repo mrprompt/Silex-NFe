@@ -57,6 +57,10 @@ class Service implements ServiceInterface, ServiceProviderInterface
         $app['nfe.xml'] = $app->protect(function($nfe) use ($company) {
             return $this->xml($company, $nfe);
         });
+
+        $app['nfe.address'] = $app->protect(function($postalCode) use ($company) {
+            return $this->address($postalCode);
+        });
     }
 
     /**
@@ -96,5 +100,15 @@ class Service implements ServiceInterface, ServiceProviderInterface
         $url = NFeService::xml($companyId, $nfeId);
 
         return $url;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function address($postalCode)
+    {
+        $url = sprintf('http://open.nfe.io/v1/addresses/%s?api_key=%s', $postalCode, $this->token);
+
+        return (new \Nfe_APIRequest())->request('GET', $url);
     }
 }

@@ -28,4 +28,10 @@ interface ServiceInterface
      * @return string
      */
     public function xml($companyId, $nfeId);
+
+    /**
+     * @param string $postalCode
+     * @return string
+     */
+    public function address($postalCode);
 }
