@@ -1,5 +1,5 @@
 <?php
-namespace MrPrompt\Silex\NFe;
+namespace SilexFriends\NFe;
 
 /**
  * Service Interface

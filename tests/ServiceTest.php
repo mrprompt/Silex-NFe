@@ -1,9 +1,9 @@
 <?php
-namespace MrPrompt\Silex\NFe\Tests;
+namespace SilexFriends\Tests\NFe;
 
 use PHPUnit_Framework_TestCase;
 use Silex\Application;
-use MrPrompt\Silex\NFe\Service;
+use SilexFriends\NFe\Service;
 
 /**
  * NFe Service Test Case

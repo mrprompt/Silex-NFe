@@ -1,5 +1,5 @@
 {
-  "name": "mrprompt/silex-nfe",
+  "name": "SilexFriends/NFe",
   "description": "Geração de NF-e",
   "license" : "MIT",
   "type": "library",
@@ -25,12 +25,12 @@
   ],
   "autoload" : {
     "psr-4" : {
-      "MrPrompt\\Silex\\NFe\\": "src/"
+      "SilexFriends\\NFe\\": "src/"
     }
   },
   "autoload-dev" : {
     "psr-4" : {
-      "MrPrompt\\Silex\\NFe\\Tests\\": "tests/"
+      "SilexFriends\\Tests\\NFe\\": "tests/"
     }
   },
   "minimum-stability": "dev"

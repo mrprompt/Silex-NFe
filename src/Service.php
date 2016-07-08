@@ -1,5 +1,5 @@
 <?php
-namespace MrPrompt\Silex\NFe;
+namespace SilexFriends\NFe;
 
 use Nfe as NFeClient;
 use Nfe_ServiceInvoice as NFeService;

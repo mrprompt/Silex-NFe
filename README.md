@@ -10,6 +10,7 @@ NFe.io Client for Silex
 
 ```
 use Silex\Application;
+use SilexFriends\Nfe\Service;
 
 $token   = getenv('NFE_TOKEN');
 $company = getenv('NFE_COMPANY');
