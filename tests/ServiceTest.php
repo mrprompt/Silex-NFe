@@ -67,7 +67,7 @@ class ServiceTest extends PHPUnit_Framework_TestCase
             'borrower'          => [
                 'federalTaxNumber'  => 191,
                 'name'              => 'BANCO DO BRASIL SA',
-                'email'             => 'hackers@nfe.io',
+                'email'             => 'nfe-io@mailinator.com',
                 'address'           => [
                     'country'               => 'BRA',
                     'postalCode'            => '70073901',
