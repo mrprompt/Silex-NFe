@@ -1,6 +1,9 @@
 # Silex NFe.io Service Provider
 
-[![Build Status](https://travis-ci.org/mrprompt/silex-nfe.svg?branch=master)](https://travis-ci.org/mrprompt/silex-nfe)
+[![Build Status](https://travis-ci.org/SilexFriends/NFe.svg?branch=master)](https://travis-ci.org/SilexFriends/NFe)
+[![Code Climate](https://codeclimate.com/github/SilexFriends/NFe/badges/gpa.svg)](https://codeclimate.com/github/SilexFriends/NFe)
+[![Test Coverage](https://codeclimate.com/github/SilexFriends/NFe/badges/coverage.svg)](https://codeclimate.com/github/SilexFriends/NFe/coverage)
+[![Issue Count](https://codeclimate.com/github/SilexFriends/NFe/badges/issue_count.svg)](https://codeclimate.com/github/SilexFriends/NFe)
 
 NFe.io Client for Silex
 
@@ -33,7 +36,7 @@ $this->app['nfe.create']([
          // Nome da pessoa física ou Razão Social da Empresa
          'name' => 'BANCO DO BRASIL SA',
          // Email para onde deverá ser enviado a nota fiscal
-         'email' => 'hackers@nfe.io',
+         'email' => 'seu@email.da.nota',
          // Endereço do tomador
          'address' => [
              // Código do pais com três letras
