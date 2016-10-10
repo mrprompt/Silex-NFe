@@ -1,14 +1,14 @@
 {
-  "name": "silexfriends/nfe",
+  "name": "mrprompt/silex-nfe",
   "description": "Geração de NF-e",
   "license" : "MIT",
   "type": "library",
   "require": {
-    "php": ">=7.0",
+    "php": ">=5.5",
     "nfe/nfe": "dev-master"
   },
   "require-dev": {
-    "phpunit/phpunit": "^5.3",
+    "phpunit/phpunit": "*",
     "silex/silex": "^1.3"
   },
   "authors": [
@@ -17,16 +17,11 @@
       "email": "mrprompt@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/nfe/client-php.git"
-    }
-  ],
   "autoload" : {
     "psr-4" : {
       "SilexFriends\\NFe\\": "src/"
-    }
+    },
+    "files": ["./vendor/nfe/nfe/lib/init.php"]
   },
   "autoload-dev" : {
     "psr-4" : {

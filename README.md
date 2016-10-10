@@ -9,7 +9,16 @@ NFe.io Client for Silex
 
 [x] Generate NFe
 [x] Generate PDF
-[x] Generate XML 
+[x] Generate XML
+
+
+## Install
+
+```
+composer install mrprompt/silex-nfe
+```
+
+## Use
 
 ```
 use Silex\Application;

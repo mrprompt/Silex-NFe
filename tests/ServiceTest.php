@@ -48,7 +48,7 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function createMustBeReturnErrorWhenReceiveEmptyFields()
     {
-        $fields  = [];
+        $fields = [];
 
         $validate = $this->app['nfe.create']($fields);
 
@@ -60,8 +60,8 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function createMustBeReturnObjectWhenValidFields()
     {
-        $fields  = [
-            'cityServiceCode'   => '2690',
+        $fields = [
+            'cityServiceCode'   => '2917',
             'description'       => 'TESTE EMISSAO',
             'servicesAmount'    => 0.01,
             'borrower'          => [
@@ -70,14 +70,14 @@ class ServiceTest extends PHPUnit_Framework_TestCase
                 'email'             => 'nfe-io@mailinator.com',
                 'address'           => [
                     'country'               => 'BRA',
-                    'postalCode'            => '70073901',
+                    'postalCode'            => '2503209',
                     'street'                => 'Outros Quadra 1 Bloco G Lote 32',
                     'number'                => 'S/N',
                     'additionalInformation' => 'QUADRA 01 BLOCO G',
                     'district'              => 'Asa Sul',
                     'state'                 => 'DF',
                     'city'                  => [
-                        'code' => '5300108',
+                        'code' => '2503209',
                         'name' => 'Brasilia'
                     ],
                 ]
@@ -96,7 +96,7 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function pdfMustBeReturnValidUrlWhenIdentifierIsValid()
     {
-        $validate = $this->app['nfe.pdf']('570ea6a4dfd7bc0af4cb55b3');
+        $validate = $this->app['nfe.pdf']('57fc11213d6078011c4042b9');
 
         $this->assertNotEmpty($validate);
         $this->assertStringStartsWith('http', $validate);
@@ -107,7 +107,7 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function pdfMustBeReturnFalseWhenInvalidValidIdentifier()
     {
-        $validate   = $this->app['nfe.pdf']('aldldkfjdlaldkjd');
+        $validate = $this->app['nfe.pdf']('aldldkfjdlaldkjd');
 
         $this->assertFalse($validate);
     }
@@ -117,9 +117,9 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function xmlMustBeReturnValidUrlWhenIdentifierIsValid()
     {
-        $this->markTestIncomplete();
-        
-        $validate   = $this->app['nfe.xml']('570ea6a4dfd7bc0af4cb55b3');
+        $this->markTestIncomplete('End-point error, must be fixed on the future');
+
+        $validate = $this->app['nfe.xml']('57fc166d3d607805c46efa0a');
 
         $this->assertNotEmpty($validate);
         $this->assertStringStartsWith('http', $validate);
@@ -130,7 +130,7 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function xmlMustBeReturnFalseWhenInvalidValidIdentifier()
     {
-        $validate   = $this->app['nfe.xml']('aldldkfjdlaldkjd');
+        $validate = $this->app['nfe.xml']('aldldkfjdlaldkjd');
 
         $this->assertFalse($validate);
     }
