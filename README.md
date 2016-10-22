@@ -80,4 +80,20 @@ $app['nfe.pdf']('570ea6a4dfd7bc0af4cb55b3');
 $app['nfe.xml']('570ea6a4dfd7bc0af4cb55b3');
 ```
 
-:)
+## Test
+
+Set environment variables:
+
+- NFE_TOKEN
+- NFE_COMPANY
+- NFE_ID
+
+Run tests
+
+```
+./vendor/bin/phpunit 
+```
+
+## License
+
+MIT

@@ -9,7 +9,8 @@
   },
   "require-dev": {
     "phpunit/phpunit": "*",
-    "silex/silex": "^1.3"
+    "silex/silex": "^1.3",
+    "codeclimate/php-test-reporter": "dev-master"
   },
   "authors": [
     {

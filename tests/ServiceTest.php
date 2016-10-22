@@ -18,6 +18,11 @@ class ServiceTest extends PHPUnit_Framework_TestCase
     private $app;
 
     /**
+     * @var string
+     */
+    private $nfeId;
+
+    /**
      * Bootstrap
      */
     public function setUp()
@@ -26,6 +31,8 @@ class ServiceTest extends PHPUnit_Framework_TestCase
 
         $token   = getenv('NFE_TOKEN');
         $company = getenv('NFE_COMPANY');
+
+        $this->nfeId = getenv('NFE_ID');
 
         $app = new Application;
         $app->register(new Service($token, $company));
@@ -96,7 +103,7 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function pdfMustBeReturnValidUrlWhenIdentifierIsValid()
     {
-        $validate = $this->app['nfe.pdf']('57fc11213d6078011c4042b9');
+        $validate = $this->app['nfe.pdf']($this->nfeId);
 
         $this->assertNotEmpty($validate);
         $this->assertStringStartsWith('http', $validate);
@@ -117,9 +124,9 @@ class ServiceTest extends PHPUnit_Framework_TestCase
      */
     public function xmlMustBeReturnValidUrlWhenIdentifierIsValid()
     {
-        $this->markTestIncomplete('End-point error, must be fixed on the future');
+        $this->markTestSkipped('End-point error, must be fixed on the future');
 
-        $validate = $this->app['nfe.xml']('57fc166d3d607805c46efa0a');
+        $validate = $this->app['nfe.xml']($this->nfeId);
 
         $this->assertNotEmpty($validate);
         $this->assertStringStartsWith('http', $validate);
